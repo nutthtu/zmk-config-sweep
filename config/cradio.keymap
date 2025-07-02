@@ -18,17 +18,10 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <100>;
+            tapping-term-ms = <180>;
+            quick-tap-ms = <150>;
             global-quick-tap;
             bindings = <&kp>, <&kp>;
-        };
-
-        mt {
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <100>;
-            global-quick-tap;
         };
 
         mmv {
@@ -46,84 +39,60 @@
 
     conditional_layers { compatible = "zmk,conditional-layers"; };
 
-    combos {
-        compatible = "zmk,combos";
-
-        Minus {
-            bindings = <&kp MINUS>;
-            key-positions = <3 6>;
-        };
-
-        ESCape {
-            bindings = <&kp ESCAPE>;
-            key-positions = <10 19>;
-        };
-
-        capsword {
-            bindings = <&caps_word>;
-            key-positions = <20 29>;
-        };
-
-        under {
-            bindings = <&kp UNDERSCORE>;
-            key-positions = <23 26>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
         Base {
             bindings = <
-&kp Q           &kp W           &kp E             &kp R        &kp T          &kp Y        &kp U            &kp I              &kp O            &kp P
-&mt LEFT_WIN A  &mt LEFT_ALT S  &mt LEFT_SHIFT D  &mt LCTRL F  &kp G          &kp H        &mt RCTRL J      &mt RIGHT_SHIFT K  &mt RIGHT_ALT L  &mt RIGHT_WIN SEMICOLON
-&kp Z           &kp X           &kp C             &kp V        &kp B          &kp N        &kp M            &kp COMMA          &kp DOT          &kp SLASH
-                                                  &lt 3 TAB    &lt 1 SPACE    &lt 2 ENTER  &lt 5 BACKSPACE
+&kp Q  &kp W  &kp E  &kp R           &kp T          &kp Y            &kp U   &kp I      &kp O    &kp P
+&kp A  &kp S  &kp D  &kp F           &kp G          &kp H            &kp J   &kp K      &kp L    &kp SEMICOLON
+&kp Z  &kp X  &kp C  &kp V           &kp B          &kp N            &kp M   &kp COMMA  &kp DOT  &kp SLASH
+                     &kp LEFT_SHIFT  &lt 4 SPACE    &lt 5 BACKSPACE  &to 1
             >;
         };
 
-        NAV {
+        KB_Movement {
             bindings = <
-&kp HOME  &kp UP    &kp END    &kp PG_UP  &kp PRINTSCREEN    &kp TILDE  &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&kp LEFT  &kp DOWN  &kp RIGHT  &kp PG_DN  &kp CAPS           &kp LEFT   &kp DOWN          &kp UP_ARROW       &kp RIGHT             &none
-&none     &none     &none      &none      &none              &none      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LESS_THAN         &kp GREATER_THAN
-                               &none      &trans             &mo 4      &none
+&kp BSPC      &kp HOME      &kp UP        &kp END       &kp PG_UP       &none   &kp K_COPY    &kp K_PASTE   &kp K_CUT   &default_report
+&bt BT_SEL 4  &kp LEFT      &kp DOWN      &kp RIGHT     &kp PG_DN       &none   &kp LEFT_ALT  &kp LEFT_GUI  &kp LCTRL   &kp LEFT_SHIFT
+&bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3    &none   &kp K_UNDO    &kp K_AGAIN   &kp K_FIND  &studio_unlock
+                                          &to 0        &trans          &trans  &to 2
             >;
         };
 
-        SYM {
+        Mouse_Movement {
             bindings = <
-&none          &none          &kp LS(STAR)   &kp LS(AMPS)  &none           &none      &none  &none  &none  &none
-&kp LS(DQT)    &kp LS(CARET)  &kp LS(PRCNT)  &kp LS(DLLR)  &kp LS(PLUS)    &kp EQUAL  &none  &none  &none  &none
-&kp LS(TILDE)  &kp LS(POUND)  &kp LS(AT)     &kp LS(EXCL)  &kp LS(PIPE)    &none      &none  &none  &none  &none
-                                             &none         &none           &trans     &none
+&none           &none      &none         &kp K_MUTE    &kp K_VOL_UP         &kp C_BRIGHTNESS_INC  &msc SCRL_UP  &mmv MOVE_UP  &msc SCRL_DOWN  &msc SCRL_LEFT
+&kp LEFT_SHIFT  &kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &kp K_VOLUME_DOWN    &kp C_BRI_DEC         &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_RIGHT
+&trans          &mkp RCLK     &mkp MCLK        &mkp LCLK        &kp K_BACK           &kp K_FORWARD         &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans
+                                         &to 0        &mkp LCLK               &mkp RCLK                &to 3
             >;
         };
 
-        NUM {
+        Functions {
             bindings = <
-&none  &none  &none  &none   &none    &none   &kp N7        &kp N8        &kp N9        &none
-&none  &none  &none  &none   &none    &none   &kp NUMBER_4  &kp N5        &kp N6        &none
-&none  &none  &none  &none   &none    &kp N0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &none
-                     &trans  &none    &none   &none
+&kp F1     &kp F2     &kp F3    &kp F4    &kp F5         &kp F6           &kp F7    &kp F8    &kp F9     &kp F10
+&kp N1     &kp N2     &kp N3    &kp N4    &kp N5         &kp N6           &kp N7    &kp N8    &kp N9     &kp N0
+&kp LSHFT  &kp LCTRL  &kp LGUI  &kp LALT  &kp F11        &kp F12          &kp LALT  &kp LGUI  &kp LCTRL  &kp LSHFT
+                                &to 0    &lt 4 SPACE    &lt 5 BACKSPACE  &to 0
             >;
         };
 
-        CONNECT {
+        L_layer {
             bindings = <
-&bt BT_SEL 0  &bt BT_CLR  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&bt BT_SEL 1  &trans      &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&bt BT_SEL 2  &trans      &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-                                  &trans  &trans    &trans  &trans
+&kp NUMBER_1  &kp N2        &kp N3        &kp N4    &kp N5       &trans    &trans   &trans  &trans  &trans
+&kp LS(EXCL)  &kp LS(LPAR)  &kp LS(RPAR)  &kp TAB   &kp GRAVE    &trans    &trans   &trans  &trans  &trans
+&kp LSHFT     &kp LCTRL     &kp LGUI      &kp LALT  &kp ESC      &trans    &trans   &trans  &trans  &trans
+                                          &none     &trans       &kp BSPC  &kp DEL
             >;
         };
 
-        Fn {
+        R_layer {
             bindings = <
-&kp F10  &kp F7  &kp F8  &kp F9  &kp LGUI     &trans  &trans     &trans     &trans    &trans
-&kp F11  &kp F4  &kp F5  &kp F6  &kp LCTRL    &trans  &kp LCTRL  &kp LSHFT  &kp LALT  &kp LGUI
-&kp F12  &kp F1  &kp F2  &kp F3  &kp LALT     &trans  &trans     &trans     &trans    &trans
-                         &trans  &trans       &trans  &trans
+&trans  &trans  &trans  &trans     &trans       &kp N6     &kp N7    &kp N8    &kp N9     &kp N0
+&trans  &trans  &trans  &trans     &trans       &kp MINUS  &kp RET   &kp SEMI  &kp LBKT   &kp RBKT
+&trans  &trans  &trans  &trans     &trans       &kp EQUAL  &kp LALT  &kp LGUI  &kp LCTRL  &kp BSLH
+                        &kp LSHFT  &kp SPACE    &trans     &none
             >;
         };
     };
