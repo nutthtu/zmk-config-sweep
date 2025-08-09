@@ -1,8 +1,8 @@
 // Copyright (c) 2022 The ZMK Contributors
 // SPDX-License-Identifier: MIT
 
-#define U_MOUSE_MOVE_MAX 5000
-#define ZMK_MOUSE_DEFAULT_MOVE_VAL 20000
+#define U_MOUSE_MOVE_MAX 10000
+#define ZMK_MOUSE_DEFAULT_MOVE_VAL 40000
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
 
 #include <dt-bindings/zmk/mouse.h>
