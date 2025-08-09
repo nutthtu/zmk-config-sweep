@@ -55,12 +55,12 @@
 
         ctrll {
             bindings = <&kp LCTRL>;
-            key-positions = <10 11>;
+            key-positions = <>;
         };
 
         ctrjr {
             bindings = <&kp RCTRL>;
-            key-positions = <18 19>;
+            key-positions = <>;
         };
 
         altl {
@@ -75,12 +75,12 @@
 
         shiftl {
             bindings = <&kp LEFT_SHIFT>;
-            key-positions = <20 21>;
+            key-positions = <>;
         };
 
         shiftr {
             bindings = <&kp RIGHT_SHIFT>;
-            key-positions = <29 28>;
+            key-positions = <>;
         };
 
         guil {
@@ -104,10 +104,10 @@
 
         Base {
             bindings = <
-&kp Q  &kp W  &kp E  &kp R      &kp T          &kp Y        &kp U            &kp I      &kp O    &kp P
-&kp A  &kp S  &kp D  &kp F      &kp G          &kp H        &kp J            &kp K      &kp L    &kp SEMICOLON
-&kp Z  &kp X  &kp C  &kp V      &kp B          &kp N        &kp M            &kp COMMA  &kp DOT  &kp SLASH
-                     &lt 2 TAB  &lt 3 SPACE    &lt 4 ENTER  &lt 5 BACKSPACE
+&kp Q             &kp W  &kp E  &kp R      &kp T          &kp Y        &kp U            &kp I      &kp O    &kp P
+&mt LCTRL A       &kp S  &kp D  &kp F      &kp G          &kp H        &kp J            &kp K      &kp L    &mt RCTRL SEMICOLON
+&mt LEFT_SHIFT Z  &kp X  &kp C  &kp V      &kp B          &kp N        &kp M            &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH
+                                &lt 2 TAB  &lt 3 SPACE    &lt 4 ENTER  &lt 5 BACKSPACE
             >;
         };
 
